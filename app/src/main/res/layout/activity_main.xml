@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="main"
+            type="com.xlzhen.rulerselectorview.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guide_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guide_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/weight_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/weight"
+            android:textColor="@color/color_333"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/weight_number_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{String.format(`%skg`,main.weight)}"
+            android:textColor="@color/color_333"
+            android:textSize="15sp"
+            app:layout_constraintRight_toRightOf="@+id/right_guide_line"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.xlzhen.rulerselectorview.RulerSelectorView
+            android:id="@+id/weight_ruler_selector_view"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="@+id/left_guide_line"
+            app:layout_constraintRight_toRightOf="@+id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@+id/weight_text_view"
+            app:select_current="50"
+            app:select_max="180"
+            app:select_min="20" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

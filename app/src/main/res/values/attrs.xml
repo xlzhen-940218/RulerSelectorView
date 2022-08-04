@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RulerSelectorView">
+        <attr name="select_min" format="integer"/>
+        <attr name="select_max" format="integer"/>
+        <attr name="select_current" format="integer"/>
+    </declare-styleable>
+</resources>
